@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="www/css/style_recipe.css">
+</head>
+<body>
+  <div class="grid-container">
+    <header>
+      <div class="logo-container">
+        <div class="logo">{logo}</div>
+      <div class="logo2"></div>
+    </div>
+    </header>
+    
+    
+    <div class="sidebar">
+      <div id="button-container">
+      <button id="recipe-category-btns" button>Button</button>
+      </div>
+    </div>
+    <main class="main">
+      <div class="name">
+        <div class="recipe_name bigtext">{name}</div>
+        <div class="recipe_category normaltext">{recipe_category}</div>
+        <div class="recipe_category normaltext">{dish_category}</div>
+
+
+      </div>
+
+
+      <div class="clasification normaltext">
+        <div>
+          {difficulty}
+        </div>
+
+        <div>
+          {duration}
+        </div>
+
+        <div>
+          {price}
+        </div>
+
+        <div>
+          {country}
+        </div>
+
+        <div>
+          {tolerance}
+        </div>
+
+      </div>
+
+      <div class="description normaltext">
+        {description}</div>
+
+
+      <div class="ingredient normaltext">
+        <div>{ingredient}</div>
+        <div>{author}</div>
+    </div>
+    </main>
+    
+    <footer class="normaltext">Generated: {datetime}</footer>
+  </div>
+  <script src="www/js/script_recipe.js"></script>
+</body>
+</html>
+
+

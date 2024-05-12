@@ -1,0 +1,128 @@
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  grid-template-rows: 20vh 60vh 14vh; /* Set the row sizes */
+  grid-template-columns: 30vh 70vh; /* Set the column sizes */
+  gap: 2vh; /* Adjust the gap between grid items */
+}
+
+/* Header */
+header {
+  color: white;
+  grid-area: header;
+  border: 2vh solid red; /* Border for visualization */
+  /*background: black;*/
+}
+
+/* Sidebar */
+.sidebar {
+  color: white;
+  grid-area: sidebar;
+  border: 2vh solid green;
+  /*background: black;*/
+}
+
+/* Main */
+main {
+  color: white;
+  grid-area: main;
+  border: 2vh solid blue;  /*Border for visualization */
+  /*background: black;*/
+}
+
+/* Footer */
+footer {
+  grid-area: footer;
+  color: white;
+  border: 2vh solid yellow; /* Border for visualization */
+  /*background: black;*/
+}
+body{
+
+  background: linear-gradient(0deg, #333, #555) fixed;
+}
+
+
+.main{
+  display: grid;
+  grid-template-areas:
+    "name name name"
+    "clasification description ingredient";
+  grid-template-columns: 20% 60% 20%; /* Three columns */
+  grid-template-rows: 20% auto; /* Two rows, with the first row taking up 20% of the height */
+  gap: 10px; /* Adjust the gap between grid items */
+}
+
+.name {
+  grid-area: name;
+  text-align: center;
+  
+  border: 2px solid red;
+}
+
+.clasification {
+  grid-area: clasification;
+  border: 2px solid red;
+}
+
+.description {
+  grid-area: description;
+  border: 2px solid red;
+}
+
+.ingredient {
+  grid-area: ingredient;
+  border: 2px solid red; /* Add border to the logo containers */
+}
+
+.table-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc; /* Border for the cells */
+  padding: 10px; /* Add some padding */
+}
+
+
+
+
+
+
+
+
+.logo-container {
+  width: 500px;
+  height: 100%;
+  display: flex; 
+  align-items: center; 
+}
+
+.logo,
+.logo2 {
+  height: 16vh; /* Set a larger height */
+  width: 16vh; /* Set a larger width */
+  margin-right: 20px; /* Adjust margin as needed */
+  border: 2px solid #fff; /* Add border to the logo containers */
+  border-radius: 5px; /* Optional: Add border radius for rounded corners */
+  padding: 5px; /* Optional: Add padding inside the border */
+}
+
+.recipe_name{
+  text-align: center;
+}
+.recipe_category{
+  text-align: left;
+}
+
+.normaltext{
+  font-size: 20px;
+}
+
+.bigtext{
+  font-size: 40px;
+  font-weight: bold;
+}
