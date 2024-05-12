@@ -2,7 +2,11 @@
 class SmartCookClient
 {
     private const URL = "https://www.smartcook-project.eu/api/";
-    
+    private const SENDER = [
+        "id" => 1,
+        "name" => "Test User",
+        "secret" => "****"
+    ];
     private const SMARTCOOK = [
         "id" => 0,
         "name" => "SmartCook",
