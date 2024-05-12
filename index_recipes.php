@@ -43,18 +43,130 @@ if (1 == 1) { #Price STR change
         $e["price"] = "Price: expensive";
     }
 }
+if (1 == 1){ #dish_category to str
+    $b = "";
+    foreach ($e["dish_category"] as $row){ 
+        switch($row){
+            case 1:
+                $row = "Breakfast";
+                break;
+            case 2:
+                $row = "Soup";
+                break;
+                
+            case 3:
+                $row = "Main course";
+                break;
+            case 4:
+                $row = "Dessert";
+                break;
+            case 5:
+                $row = "Dinner";
+                break;
+        }
+    $b = $b . strval($row) . ", ";
+    }
+    $b = substr_replace($b, ".", -2);
+    $b = "Dish categories/y: " . $b;
+}
+
+if (1 == 1){ #recipe_category to str
+    $c = "";
+    foreach ($e["recipe_category"] as $row){ 
+        switch($row){
+            case 1:
+                $row = "Soup";
+                break;
+            case 2:
+                $row = "Meat";
+                break;
+                
+            case 3:
+                $row = "Meat free";
+                break;
+            case 4:
+                $row = "Dessert";
+                break;
+            case 5:
+                $row = "Sauce";
+                break;
+            case 6:
+                $row = "Pasta";
+                break;
+            case 7:
+                $row = "Salad";
+                break;
+            case 8:
+                $row = "Sweet food";
+                break;
+            case 8:
+                $row = "Drink";
+                break;
+        }
+    $c = $c . strval($row) . ", ";
+    }
+    $c = substr_replace($c, ".", -2);
+    $c  = "Category of recipe: " . $c;
+}
+if (1 == 1){ #duration
+    $duration = $e["duration"];
+    $duration = "Duration of cooking: " . $duration;
+}
+if (1 == 1){ #country of origin
+    $country = $e["country"];
+    $country = "Country of cooking: " . $country;
+}
+if (1 == 1){ #recipe_category to str
+    $c = "";
+    foreach ($e["recipe_category"] as $row){ 
+        switch($row){
+            case 1:
+                $row = "Soup";
+                break;
+            case 2:
+                $row = "Meat";
+                break;
+                
+            case 3:
+                $row = "Meat free";
+                break;
+            case 4:
+                $row = "Dessert";
+                break;
+            case 5:
+                $row = "Sauce";
+                break;
+            case 6:
+                $row = "Pasta";
+                break;
+            case 7:
+                $row = "Salad";
+                break;
+            case 8:
+                $row = "Sweet food";
+                break;
+            case 8:
+                $row = "Drink";
+                break;
+        }
+    $c = $c . strval($row) . ", ";
+    }
+    $c = substr_replace($c, ".", -2);
+    $c  = "Category of recipe: " . $c;
+}
 
 $tmpltRecipe = $tmplt;
 $search = array("{id}", "{name}", "{difficulty}", 
                 "{description}", "{duration}", "{price}", 
-                "{country}", "{dttm}", "{author}"
+                "{country}", "{dttm}", "{author}", "{dish_category}", "{recipe_category}"
                 );
 $replace = array($e["id"], $e["name"], $e["difficulty"],
-                $e["description"], $e["duration"], $e["price"],
-                $e["country"], $e["dttm"], $e["author"]);
+                $e["description"], $duration, $e["price"],
+                $country, $e["dttm"], $e["author"], $b, $c);
 
-                #, "{dish_category}", "{recipe_category}", "{tolerance}","{ingredient}", $e["ingredient"], $e["dish_category"], $e["recipe_category"], $e["tolerance"]
+                #, "", "", "{tolerance}","{ingredient}", $e["ingredient"], $e["dish_category"],$e["tolerance"]
 
+ 
 
 
 $tmpltRecipe = str_replace($search, $replace, $tmpltRecipe);
