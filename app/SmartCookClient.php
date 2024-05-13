@@ -7,7 +7,6 @@ class SmartCookClient
         "name" => "Test User",
         "secret" => "****"
     ];
-
     
     private const SMARTCOOK = [
         "id" => 0,

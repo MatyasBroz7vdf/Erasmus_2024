@@ -69,7 +69,6 @@ if (1 == 1){ #dish_category to str
     $b = substr_replace($b, ".", -2);
     $b = "Dish categories/y: " . $b;
 }
-
 if (1 == 1){ #recipe_category to str
     $c = "";
     foreach ($e["recipe_category"] as $row){ 
@@ -154,20 +153,80 @@ if (1 == 1){ #recipe_category to str
     $c = substr_replace($c, ".", -2);
     $c  = "Category of recipe: " . $c;
 }
+if (1 == 1){ #tolerance to str
+    $d = "";
+    foreach ($e["tolerance"] as $row){ 
+        switch($row){
+            case 1:
+                $row = "Vegetarian";
+                break;
+            case 2:
+                $row = "Vegan";
+                break;
+                
+            case 3:
+                $row = "Nuts";
+                break;
+            case 4:
+                $row = "Gluten";
+                break;
+            case 5:
+                $row = "Lactose";
+                break;
+            case 6:
+                $row = "Spicy";
+                break;
+            case 7:
+                $row = "Alcohol";
+                break;
+            case 8:
+                $row = "Sea food";
+                break;
+            case 9:
+                $row = "Mushrooms";
+                break;
+        }
+    $d = $d . strval($row) . ", ";
+    }
+    $d = substr_replace($d, ".", -2);
+    $d  = "Tolerance/alergens: " . $d;
+}
 
-$tmpltRecipe = $tmplt;
-$search = array("{id}", "{name}", "{difficulty}", 
+if (1 == 1){ #Ingredients to str
+    $f = "";
+   
+    foreach ($e["ingredient"] as $row){ 
+        $u = $row["name"];
+        $u2 = $row["quantity"];
+        $u3 = $row["unit"];
+        $u4 = $row["necessary"];
+        if ($u4 == "1"){
+            $u4 = "Yes";
+            }
+        else{
+            $u4 = "No";
+        }
+            
+        $u5 = "Name: " . strval($u) . " Quantity: " . strval($u2) . " Unit: " . strval($u3) . " Necessary: " . strval($u4) . "<br><br>";
+        $f = $f . strval($u5);
+        
+        }
+
+    
+    }
+
+    $f = "Ingredients: <br>" . $f;
+
+    $tmpltRecipe = $tmplt;
+
+    $search = array("{id}", "{name}", "{difficulty}", 
                 "{description}", "{duration}", "{price}", 
-                "{country}", "{dttm}", "{author}", "{dish_category}", "{recipe_category}"
-                );
-$replace = array($e["id"], $e["name"], $e["difficulty"],
+                "{country}", "{dttm}", "{author}", 
+                "{dish_category}", "{recipe_category}", "{tolerance}",
+                "{ingredient}");
+                $replace = array($e["id"], $e["name"], $e["difficulty"],
                 $e["description"], $duration, $e["price"],
-                $country, $e["dttm"], $e["author"], $b, $c);
-
-                #, "", "", "{tolerance}","{ingredient}", $e["ingredient"], $e["dish_category"],$e["tolerance"]
-
- 
-
+                $country, $e["dttm"], $e["author"], $b, $c, $d, $f);
 
 $tmpltRecipe = str_replace($search, $replace, $tmpltRecipe);
 echo $tmpltRecipe;
